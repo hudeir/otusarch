@@ -12,5 +12,5 @@ spec:
       paths:
         - path: /otusapp/hudeir($|/)(.*)
           backend:
-            serviceName: hello-service
+            serviceName: hello1-service
             servicePort: 8000
