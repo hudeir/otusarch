@@ -1,0 +1,26 @@
+replicaCount: 2
+
+image:
+  repository: hudeir/rest-app-py
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8000
+
+ingress:
+  enabled: true
+  hosts:
+    - host: arch.homework
+      paths: ["/otusapp/hudeir"]
+
+
+postgresql:
+  enabled: true
+  postgresqlUsername: myuser
+  postgresqlPassword: passwd
+  postgresqlDatabase: myapp
+  service:
+    type: NodePort
+    nodePort: "30125"
+    port: "5432"
