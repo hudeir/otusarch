@@ -3,6 +3,7 @@ import json
 
 from flask import Flask, request
 from sqlalchemy import  create_engine
+from metrics import register_metrics
 
 app = Flask(__name__)
 
@@ -89,6 +90,11 @@ def delete_user(id):
 
     return f"user {id} deleted"
 
+@app.route('/metrics')
+def metrics():
+    from prometheus_client import generate_latest
+    return generate_latest()
 
 if __name__ == "__main__":
+    register_metrics(app)
     app.run(host='0.0.0.0', port='80')

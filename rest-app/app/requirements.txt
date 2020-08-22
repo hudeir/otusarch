@@ -3,3 +3,4 @@ Flask-SQLAlchemy
 Flask-Migrate
 psycopg2
 Flask-Script
+prometheus-client==0.7.1
